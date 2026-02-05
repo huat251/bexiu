@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process - BEXIU.STU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #FFF0F5;
+            color: #333;
+        }
+        
+        .process-hero {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .process-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .process-container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #FFF0F5;
+            padding-top: 0;
+        }
+        
+        .process-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 60px 180px 80px;
+        }
+        
+        .process-title {
+            font-size: 80px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: #333;
+        }
+        
+        .process-title .ampersand {
+            color: #ff6347;
+        }
+        
+        .process-subtitle {
+            text-align: right;
+            max-width: 400px;
+        }
+        
+        .process-subtitle h2 {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .refresh-icon {
+            width: 60px;
+            height: 60px;
+            border: 3px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .refresh-icon:hover {
+            transform: rotate(180deg);
+        }
+        
+        .refresh-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: #333;
+        }
+        
+        .process-content {
+            display: flex;
+            align-items: center;
+            padding: 0 180px 100px;
+            gap: 100px;
+            position: relative;
+        }
+        
+        .process-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .process-image img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        .process-details {
+            flex: 1;
+            position: relative;
+            padding-right: 200px;
+        }
+        
+        .step-label {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        
+        .step-title {
+            font-size: 35px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 35px;
+            line-height: 1;
+            color: #000;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .step-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            max-width: 500px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .step-number {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 380px;
+            font-weight: 900;
+            color: rgba(100, 100, 100, 0.08);
+            z-index: 1;
+            line-height: 0.8;
+        }
+        
+        /* Responsive Styles for Our Process Page */
+        @media (max-width: 1200px) {
+            .process-header {
+                padding: 60px 100px 80px;
+            }
+            
+            .process-content {
+                padding: 0 100px 100px;
+                gap: 80px;
+            }
+            
+            .process-details {
+                padding-right: 150px;
+            }
+            
+            .step-number {
+                font-size: 320px;
+                right: 30px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .process-header {
+                padding: 50px 60px 60px;
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .process-header img {
+                height: 120px;
+            }
+            
+            .process-header > div {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start !important;
+            }
+            
+            .process-subtitle {
+                text-align: left;
+            }
+            
+            .process-title {
+                font-size: 60px;
+            }
+            
+            .process-content {
+                padding: 0 60px 80px;
+                gap: 60px;
+            }
+            
+            .process-details {
+                padding-right: 100px;
+            }
+            
+            .step-title {
+                font-size: 30px;
+            }
+            
+            .step-description {
+                font-size: 15px;
+            }
+            
+            .step-number {
+                font-size: 280px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .process-hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+            
+            .process-header {
+                padding: 40px 40px 50px;
+            }
+            
+            .process-header img {
+                height: 100px;
+            }
+            
+            .process-subtitle h2 {
+                font-size: 16px;
+                letter-spacing: 1.5px;
+            }
+            
+            .refresh-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .refresh-icon svg {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .process-content {
+                flex-direction: column !important;
+                padding: 0 40px 60px;
+                gap: 40px;
+            }
+            
+            .process-image {
+                width: 100%;
+            }
+            
+            .process-image img {
+                max-width: 100%;
+            }
+            
+            .process-details {
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            
+            .process-details[style*="text-align: right"] .step-description {
+                margin-left: 0 !important;
+            }
+            
+            .step-label {
+                font-size: 11px;
+                margin-bottom: 20px;
+            }
+            
+            .step-title {
+                font-size: 28px;
+                margin-bottom: 25px;
+            }
+            
+            .step-description {
+                font-size: 14px;
+                line-height: 1.7;
+                max-width: 100%;
+            }
+            
+            .step-number {
+                position: static !important;
+                transform: none !important;
+                font-size: 180px;
+                opacity: 0.3;
+                margin-top: 20px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .process-header {
+                padding: 35px 30px 40px;
+            }
+            
+            .process-header img {
+                height: 80px;
+            }
+            
+            .process-subtitle h2 {
+                font-size: 15px;
+            }
+            
+            .process-content {
+                padding: 0 30px 50px;
+                gap: 35px;
+            }
+            
+            .step-title {
+                font-size: 24px;
+                letter-spacing: 2px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .process-hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+            
+            .process-header {
+                padding: 30px 20px 35px;
+            }
+            
+            .process-header img {
+                height: 70px;
+            }
+            
+            .process-subtitle h2 {
+                font-size: 14px;
+                letter-spacing: 1.2px;
+                line-height: 1.5;
+            }
+            
+            .refresh-icon {
+                width: 45px;
+                height: 45px;
+                border-width: 2px;
+            }
+            
+            .refresh-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+            
+            .process-content {
+                padding: 0 20px 40px;
+                gap: 30px;
+            }
+            
+            .step-label {
+                font-size: 10px;
+                letter-spacing: 3px;
+                margin-bottom: 15px;
+            }
+            
+            .step-title {
+                font-size: 22px;
+                letter-spacing: 2px;
+                margin-bottom: 20px;
+            }
+            
+            .step-description {
+                font-size: 13px;
+                line-height: 1.6;
+            }
+            
+            .step-number {
+                font-size: 140px;
+                margin-top: 15px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .process-header img {
+                height: 60px;
+            }
+            
+            .process-subtitle h2 {
+                font-size: 13px;
+            }
+            
+            .step-title {
+                font-size: 20px;
+            }
+            
+            .step-description {
+                font-size: 12px;
+            }
+            
+            .step-number {
+                font-size: 120px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo_bexiu.png" alt="Logo">
+            </a>
+        </div>
+        
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <div class="nav-center">
+            <ul class="nav-menu">
+                <li><a href="production.html" data-text="PRODUCTION">PRODUCTION</a></li>
+                <li><a href="our_process.html" data-text="OUR PROCESS">OUR PROCESS</a></li>
+                <li><a href="get_yours.html" data-text="GALLERY">GALLERY</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <button class="contact-btn" data-text="CONTACT US">GET YOURS</button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    
+    <!-- Hero Image Section -->
+    <div class="process-hero">
+        <img src="images/our_process_bg.png" alt="Our Process">
+    </div>
+    
+    <!-- Process Details Section -->
+    <div class="process-container">
+        <!-- Header Section -->
+        <div class="process-header">
+            <img src="images/process_text.png" alt="Process" style="height: 150px;">
+            <div style="display: flex; align-items: flex-start; gap: 40px;">
+                <div class="process-subtitle">
+                    <h2>STEPS IN THE PROCESS<br>OF PRODUCING A<br>FINISHED PRODUCT</h2>
+                </div>
+                <div class="refresh-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content Section - Step 01 -->
+        <div class="process-content">
+            <div class="process-image">
+                <img src="images/process-1.png" alt="2D Concept">
+            </div>
+            
+            <div class="process-details">
+                <div class="step-label">AFTER RECEIVING THE IDEAS</div>
+                <h2 class="step-title">2D CONCEPT</h2>
+                <p class="step-description">
+                    Bringing ideas into sketches, refining design and style to lay the foundation for the creation process.
+                </p>
+                <div class="step-number">01</div>
+            </div>
+        </div>
+        
+        <!-- Content Section - Step 02 -->
+        <div class="process-content" style="flex-direction: row-reverse">
+            <div class="process-image">
+                <img src="images/process-2.png" alt="3D Modelling">
+            </div>
+            
+            <div class="process-details" style="text-align: right;">
+                <div class="step-label">IF YOU APPROVE</div>
+                <h2 class="step-title">3D MODELLING</h2>
+                <p class="step-description" style="margin-left: auto;">
+                    Transforming the 2D design to life in three dimensions, adding depth and texture while researching and refining the product's functionality for practical use.
+                </p>
+                <div class="step-number" style="left: -50px; right: auto;">02</div>
+            </div>
+        </div>
+
+                <!-- Content Section - Step 03 -->
+        <div class="process-content">
+            <div class="process-image">
+                <img src="images/process-3.png" alt="2D Concept">
+            </div>
+            
+            <div class="process-details">
+                <div class="step-label">IF EVERYTHING IS ALRIGHT</div>
+                <h2 class="step-title">PROTOTYPING</h2>
+                <p class="step-description">
+                    Testing the practical aspects of the product, evaluating its feel, functionality,
+                    and appearance in reality to ensure it aligns with the design vision.</p>
+                <div class="step-number">03</div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
