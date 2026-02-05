@@ -110,6 +110,13 @@
             max-width: 450px;
             height: auto;
             border-radius: 10px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .process-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
         }
         
         .process-details {
@@ -412,32 +419,30 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/logo_bexiu.png" alt="Logo">
-            </a>
-        </div>
-        
-        <!-- Hamburger Menu Button -->
-        <button class="hamburger" aria-label="Toggle menu">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-        
-        <div class="nav-center">
-            <ul class="nav-menu">
-                <li><a href="production.html" data-text="PRODUCTION">PRODUCTION</a></li>
-                <li><a href="our_process.html" data-text="OUR PROCESS">OUR PROCESS</a></li>
-                <li><a href="get_yours.html" data-text="GALLERY">GALLERY</a></li>
-            </ul>
-        </div>
-        <div class="nav-right">
-            <button class="contact-btn" data-text="CONTACT US">GET YOURS</button>
-        </div>
-    </nav>
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="images/logo_bexiu.png" alt="Logo"></a>
+            </div>
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <div class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="production.html" data-text="SẢN PHẨM">SẢN PHẨM</a></li>
+                    <li><a href="our_process.html" data-text="QUY TRÌNH">QUY TRÌNH</a></li>
+                    <li><a href="get_yours.html" data-text="BỘ SƯU TẬP">BỘ SƯU TẬP</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button class="contact-btn" data-text="SỞ HỮU NGAY">Sở hữu ngay</button>
+            </div>
+        </nav>
     
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay"></div>
@@ -471,11 +476,11 @@
             </div>
             
             <div class="process-details">
-                <div class="step-label">AFTER RECEIVING THE IDEAS</div>
-                <h2 class="step-title">2D CONCEPT</h2>
+                <div class="step-label">SAU KHI NHẬN Ý TƯỞNG</div>
+                <h2 class="step-title">PHÁC THẢO 2D</h2>
                 <p class="step-description">
-                    Bringing ideas into sketches, refining design and style to lay the foundation for the creation process.
-                </p>
+                    Chuyển hóa ý tưởng thành những bản phác thảo, tinh chỉnh thiết kế và 
+                    phong cách để đặt nền móng cho toàn bộ quá trình tạo tác.
                 <div class="step-number">01</div>
             </div>
         </div>
@@ -487,11 +492,11 @@
             </div>
             
             <div class="process-details" style="text-align: right;">
-                <div class="step-label">IF YOU APPROVE</div>
-                <h2 class="step-title">3D MODELLING</h2>
+                <div class="step-label">KHI BẠN DUYỆT</div>
+                <h2 class="step-title">TẠO HÌNH 3D</h2>
                 <p class="step-description" style="margin-left: auto;">
-                    Transforming the 2D design to life in three dimensions, adding depth and texture while researching and refining the product's functionality for practical use.
-                </p>
+                    Biến thiết kế 2D thành mô hình 3D sống động, bổ sung chiều sâu và kết cấu, 
+                    đồng thời nghiên cứu và tinh chỉnh công năng để sản phẩm có thể sử dụng một cách thực tế.
                 <div class="step-number" style="left: -50px; right: auto;">02</div>
             </div>
         </div>
@@ -503,15 +508,32 @@
             </div>
             
             <div class="process-details">
-                <div class="step-label">IF EVERYTHING IS ALRIGHT</div>
-                <h2 class="step-title">PROTOTYPING</h2>
+                <div class="step-label">KHI MỌI THỨ ĐÃ SẴN SÀNG</div>
+                <h2 class="step-title">TẠO MẪU THỬ</h2>
                 <p class="step-description">
-                    Testing the practical aspects of the product, evaluating its feel, functionality,
-                    and appearance in reality to ensure it aligns with the design vision.</p>
+                    Kiểm tra các yếu tố thực tế của sản phẩm, đánh giá cảm giác, công năng và diện mạo 
+                    ngoài đời để đảm bảo mọi thứ đúng với tầm nhìn thiết kế ban đầu.</p>
                 <div class="step-number">03</div>
             </div>
         </div>
-        
+
+        <!-- Content Section - Step 04 -->
+        <div class="process-content" style="flex-direction: row-reverse">
+            <div class="process-image">
+                <img src="images/process-4.png" alt="3D Modelling">
+            </div>
+            
+            <div class="process-details" style="text-align: right;">
+                <div class="step-label">HOÀN HẢO!</div>
+                <h2 class="step-title">HOÀN THIỆN</h2>
+                <p class="step-description" style="margin-left: auto;">
+                    Tập trung hoàn thiện sản phẩm, tinh chỉnh từng chi tiết nhỏ, 
+                    thêm những nét chạm cuối cùng và đảm bảo chất lượng cũng như độ bền 
+                    cho phiên bản hoàn chỉnh.
+                </p>
+                <div class="step-number" style="left: -50px; right: auto;">04</div>
+            </div>
+        </div>
     </div>
     
     <script src="script.js"></script>
