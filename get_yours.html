@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sở hữu ngay - BEXIU.STU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&family=Gelasio:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-hero-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            background-color: #FFF8F3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 60px;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-image {
+            position: relative;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .contact-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-form-wrapper {
+            padding: 40px;
+        }
+
+        .contact-form-wrapper h2 {
+            color: #2C2C2C;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-family: 'Gelasio', serif;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #2C2C2C;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group label .required {
+            color: #ff6b6b;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            color: #666;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-bottom-color: #FFB3C1;
+            color: #2C2C2C;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .message-counter {
+            text-align: right;
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .submit-btn {
+            background-color: transparent;
+            color: #2C2C2C;
+            border: 2px solid #2C2C2C;
+            padding: 15px 40px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #FFB3C1;
+            color: #fff;
+            border-color: #FFB3C1;
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .submit-btn.loading::after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border: 2px solid currentColor;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .submit-btn::after {
+            content: '→';
+            font-size: 1.2rem;
+        }
+
+        /* File Upload Styling */
+        .file-upload-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .file-input-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background-color: transparent;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            width: fit-content;
+        }
+
+        .file-input-label:hover {
+            border-color: #FFB3C1;
+            color: #FFB3C1;
+        }
+
+        .file-input-label svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-name {
+            color: #666;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .image-preview-container {
+            display: none;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        .image-preview-container.active {
+            display: block;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .remove-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .remove-image:hover {
+            background: #ff5252;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-image {
+                padding: 20px;
+            }
+
+            .contact-form-wrapper {
+                padding: 20px;
+            }
+
+            .contact-form-wrapper h2 {
+                font-size: 2rem;
+            }
+
+            .file-input-label {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .image-preview {
+                max-height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form-wrapper {
+                padding: 15px;
+            }
+
+            .contact-form-wrapper h2 {
+                font-size: 1.75rem;
+            }
+
+            .form-group {
+                margin-bottom: 25px;
+            }
+
+            .file-input-label {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+
+            .file-input-label svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .submit-btn {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero-section">
+        <div class="contact-container">
+            <div class="contact-image">
+                <img src="images/bexiu_showcase.png" alt="BEXIU Products" onerror="this.src='images/hero_bg1.png'">
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label>TÊN  <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" placeholder="Nhập tên của bạn " required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>SỐ ĐIỆN THOẠI <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="XXX - XXX - XXXX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>EMAIL <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="bexiu@gmail.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>HÌNH ẢNH BẠN MUỐN THỰC HIỆN </label>
+                        <div class="file-upload-wrapper">
+                            <label for="imageUpload" class="file-input-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M19 7v2.99s-1.99.01-2 0V7h-3s.01-1.99 0-2h3V2h2v3h3v2h-3zm-3 4V8h-3V5H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8h-3zM5 19l3-4 2 3 3-4 4 5H5z"/>
+                                </svg>
+                                <span>Chọn hình ảnh</span>
+                            </label>
+                            <input type="file" id="imageUpload" name="image" accept="image/*">
+                            <span class="file-name" id="fileName"></span>
+                            <div class="image-preview-container" id="imagePreviewContainer">
+                                <img id="imagePreview" class="image-preview" src="" alt="Preview">
+                                <button type="button" class="remove-image" id="removeImage">×</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>LỜI NHẮN CHO BỌN MÌNH </label>
+                        <textarea id="message" name="message" placeholder="Nhập lời nhắn..." maxlength="100"></textarea>
+                        <div class="message-counter">
+                            <span id="charCount">0</span>/100
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">GỬI ĐẾN BÉ XÍU </button>
+                    <div class="alert" id="alertMessage"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="shared.js"></script>
+    <script>
+        // ============================================
+        // EMAILJS CONFIGURATION
+        // Thay YOUR_PUBLIC_KEY bằng Public Key từ EmailJS
+        // Thay YOUR_SERVICE_ID và YOUR_TEMPLATE_ID sau khi setup
+        // ============================================
+        const EMAILJS_PUBLIC_KEY = '25wSGxvkFH6cKrmnx';  // Lấy từ https://dashboard.emailjs.com/admin/account
+        const SERVICE_ID = 'service_n1y4ek6';          // Lấy từ https://dashboard.emailjs.com/admin
+        const TEMPLATE_ID = 'template_9f8cq6k';        // Lấy từ https://dashboard.emailjs.com/admin/templates
+
+        // Initialize EmailJS
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+
+        // Character counter for message textarea
+        const messageTextarea = document.getElementById('message');
+        const charCount = document.getElementById('charCount');
+
+        messageTextarea.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+        });
+
+        // Image upload handling
+        const imageUpload = document.getElementById('imageUpload');
+        const fileName = document.getElementById('fileName');
+        const imagePreview = document.getElementById('imagePreview');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+        const removeImage = document.getElementById('removeImage');
+        let selectedFile = null;
+
+        imageUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                selectedFile = file;
+                fileName.textContent = file.name;
+                
+                // Create preview
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreviewContainer.classList.add('active');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        removeImage.addEventListener('click', function() {
+            imageUpload.value = '';
+            fileName.textContent = '';
+            imagePreview.src = '';
+            imagePreviewContainer.classList.remove('active');
+            selectedFile = null;
+        });
+
+        // Show alert message
+        function showAlert(message, type) {
+            const alert = document.getElementById('alertMessage');
+            alert.textContent = message;
+            alert.className = `alert ${type} show`;
+            setTimeout(() => {
+                alert.classList.remove('show');
+            }, 5000);
+        }
+
+        // Form submission with EmailJS
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const form = this;
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+            submitBtn.textContent = 'ĐANG GỬI';
+            
+            try {
+                // Prepare template parameters
+                const templateParams = {
+                    from_name: document.getElementById('name').value,
+                    from_email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    message: document.getElementById('message').value || 'Không có tin nhắn'
+                };
+
+                // If image is selected, convert to base64
+                // If image is selected, resize + convert to base64 (UNDER 50KB)
+if (selectedFile) {
+
+    const compressImage = (file) => {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                const img = new Image();
+                img.src = event.target.result;
+
+                img.onload = function () {
+                    const canvas = document.createElement("canvas");
+                    const ctx = canvas.getContext("2d");
+
+                    let width = img.width;
+                    let height = img.height;
+
+                    const MAX_WIDTH = 800;
+
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    let quality = 0.7;
+                    let base64;
+
+                    do {
+                        base64 = canvas.toDataURL("image/jpeg", quality);
+                        quality -= 0.05;
+                    } while (base64.length / 1024 > 50 && quality > 0.1);
+
+                    resolve(base64);
+                };
+            };
+
+            reader.readAsDataURL(file);
+        });
+    };
+
+    templateParams.image_data = await compressImage(selectedFile);
+    templateParams.image_name = selectedFile.name;
+
+} else {
+    templateParams.image_data = '';
+    templateParams.image_name = 'Không có hình ảnh';
+}
+
+
+                // Send email via EmailJS
+                const response = await emailjs.send(
+                    SERVICE_ID,
+                    TEMPLATE_ID,
+                    templateParams
+                );
+
+                console.log('SUCCESS!', response.status, response.text);
+                showAlert('Cảm ơn bạn đã liên hệ! Chúng mình sẽ phản hồi sớm nhất có thể. ✨', 'success');
+                
+                // Reset form
+                form.reset();
+                charCount.textContent = '0';
+                fileName.textContent = '';
+                imagePreview.src = '';
+                imagePreviewContainer.classList.remove('active');
+                selectedFile = null;
+                
+            } catch (error) {
+                console.error('FAILED...', error);
+                showAlert('Đã có lỗi xảy ra. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua social media. 😔', 'error');
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+                submitBtn.textContent = 'GỬI ĐẾN BÉ XÍU ';
+            }
+        });
+    </script>
+</body>
+</html>
