@@ -1787,6 +1787,10 @@ body.menu-open {
     .nav-center.active {
         right: 0;
     }
+
+    .nav-menu.active {
+        right: 0;
+    }
     
     .nav-menu {
         flex-direction: column;
@@ -1911,6 +1915,23 @@ body.menu-open {
     }
 }
 
+@media (max-width: 768px) {
+    .hero-section {
+        height: clamp(320px, 56vw, 500px);
+        min-height: 320px;
+    }
+
+    .content-section.first-section {
+        padding-top: 110px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-section.first-section {
+        padding-top: 95px;
+    }
+}
+
 /* Hero Section Enhanced Responsiveness */
 @media (max-width: 1200px) {
     .hero-logo {
@@ -1946,6 +1967,7 @@ body.menu-open {
 @media (max-width: 768px) {
     .hero-content {
         padding: 0 30px;
+        top: calc(50% + 36px);
     }
     
     .hero-logo {
@@ -1964,10 +1986,6 @@ body.menu-open {
 }
 
 @media (max-width: 640px) {
-    .hero-section {
-        min-height: 100vh;
-    }
-    
     .hero-content {
         padding: 0 25px;
     }
@@ -1984,9 +2002,14 @@ body.menu-open {
 }
 
 @media (max-width: 480px) {
+    .hero-section {
+        height: clamp(280px, 62vw, 380px);
+        min-height: 280px;
+    }
+
     .hero-content {
         padding: 0 20px;
-        top: 48%;
+        top: calc(50% + 32px);
     }
     
     .hero-logo {
@@ -3138,6 +3161,15 @@ body.menu-open {
     .gallery-hero-background .shape-square {
         width: 100px;
         height: 100px;
+    }
+}
+
+/* Index hero mobile: keep landscape framing like desktop */
+@media (max-width: 768px) {
+    .hero-slide {
+        background-size: cover, cover;
+        background-position: center center, center 20%;
+        background-repeat: no-repeat, no-repeat;
     }
 }
 
