@@ -543,7 +543,7 @@ body.menu-open {
 /* Base content section */
 .content-section {
     position: relative;
-    background: #FFF8F3;
+    background: #fcf2f0; 
     background-size: 400% 400%;
     animation: gradientFlow 20s ease-in-out infinite;
     color: #2C2C2C;
@@ -811,7 +811,7 @@ body.menu-open {
     letter-spacing: 2px;
     line-height: 1;
     font-family: 'Sedgwick Ave', cursive;
-    color: #E6B1B1;
+    color: #ed718d;
     font-style: italic;
     margin: 0;
     letter-spacing: 0.02em;
