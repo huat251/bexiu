@@ -5,7 +5,7 @@ const productsData = [
         tag: "[01]",
         title: "FIGURE",
         image: "images/product1.png",
-        images: ["images/product1.png", "images/figure.png", "images/figure-details.jpg", "images/resin_dolly.png"],
+        images: ["images/product1.png", "images/product/fg1.jpg", "images/product/fg2.jpg", "images/product/fg3.jpg"],
         description: "Một phiên bản mini của bạn – ngồi yên trên bàn làm việc, nhưng mang theo cả một câu chuyện. Nhỏ xinh, tinh tế, nhìn là thấy thân quen.",
         features: [
             "Chất liệu: Đất sét tự khô",
@@ -20,7 +20,7 @@ const productsData = [
         tag: "[02]",
         title: "KEYCHAIN<br>HEADSHOT",
         image: "images/product2.png",
-        images: ["images/product2.png", "images/prototyping.png", "images/made_just_4u.png", "images/product2.png"],
+        images: ["images/product2.png", "images/product/kch1.jpeg", "images/product/kch2.jpeg", "images/product/kch3.jpeg"],
         description: "Chỉ cần gương mặt thôi cũng đủ nhận ra rồi . Một chiếc móc khóa bé xíu, nhưng là bạn – theo mình đi khắp nơi.",
         features: [
             "Chất liệu: Đất sét tự khô",

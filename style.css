@@ -543,7 +543,7 @@ body.menu-open {
 /* Base content section */
 .content-section {
     position: relative;
-    background: #fcf2f0; 
+    background: #fff8f7; 
     background-size: 400% 400%;
     animation: gradientFlow 20s ease-in-out infinite;
     color: #2C2C2C;
@@ -806,7 +806,7 @@ body.menu-open {
 }
 
 .section-title {
-    font-size: 55px;
+    font-size: 40px;
     font-weight: 600;
     letter-spacing: 2px;
     line-height: 1;
@@ -815,7 +815,7 @@ body.menu-open {
     font-style: italic;
     margin: 0;
     letter-spacing: 0.02em;
-    text-shadow: 2px 2px 8px rgba(255, 105, 180, 0.2);
+    text-shadow: 1px 1px 2px black; 
     text-transform: uppercase;
 }
 
@@ -858,11 +858,12 @@ body.menu-open {
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -1px;
-    text-shadow: 2px 2px 8px rgba(255, 105, 180, 0.2);
+    color: #ed718d;
+    text-shadow: 1px 1px 2px black;
 }
 
 .accent-ampersand {
-    color: #FFB3C1;
+    color: #ed718d;
     font-size: 40px;
     margin: 0 8px;
 }
@@ -882,7 +883,7 @@ body.menu-open {
     border: 3px solid transparent;
     border-radius: 30px;
     background: #fff;
-    color: #FFB3C1;
+    color: #ed718d;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -953,12 +954,12 @@ body.menu-open {
 
 .portfolio-btn:hover,
 .about-btn:hover {
-    background: #FFB3C1;
+    background: #ed718d;
     color: #ffffff;
 }
 
 .about-btn:hover::after {
-    background: #FFB3C1;
+    background: #ed718d;
 }
 
 /* Right Content - Image */
@@ -1279,9 +1280,7 @@ body.menu-open {
     position: relative;
     height: 80vh;
     width: 100%;
-    background: linear-gradient(135deg, #FFF8F3 0%, #FFE8E8 25%, #FFEEF5 50%, #FFF8F3 100%);
-    background-size: 400% 400%;
-    animation: gradientFlow 20s ease-in-out infinite;
+    background: url(images/bg.png);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1316,7 +1315,7 @@ body.menu-open {
 .engine-script {
     font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
     font-size: clamp(60px, 10vw, 120px);
-    color: #FF69B4;
+    color: #ed718d;
     font-weight: 400;
     font-style: italic;
     margin: 0;
@@ -1337,8 +1336,8 @@ body.menu-open {
     position: relative;
     padding: 16px 48px;
     background: transparent;
-    color: #FF69B4;
-    border: 2px solid rgba(255, 105, 180, 0.4);
+    color: #000000;
+    border: 2px solid black;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 600;
@@ -1356,7 +1355,7 @@ body.menu-open {
     left: -2px;
     width: 10px;
     height: 10px;
-    background: #FF69B4;
+    background: #ed718d;
     border-radius: 50%;
     box-shadow: 0 0 20px 5px rgba(255, 105, 180, 0.6),
                 0 0 40px 10px rgba(255, 105, 180, 0.3);
@@ -1387,9 +1386,9 @@ body.menu-open {
 }
 
 .engine-btn:hover {
-    background: #FF69B4;
+    background: #ed718d;
     color: #ffffff;
-    border-color: #FF69B4;
+    border-color: black;
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
 }
@@ -2566,7 +2565,7 @@ body.menu-open {
 .gallery-hero {
     position: relative;
     padding: 180px 0 120px;
-    background: linear-gradient(135deg, #f5e6d3 0%, #d4c5b9 100%);
+    background: url(images/bg.png);
     overflow: hidden;
 }
 
@@ -2610,9 +2609,8 @@ body.menu-open {
 }
 
 .gallery-hero-title {
-    font-family: 'Sedgwick Ave', cursive;
-    font-size: 4.5rem;
-    color: #2c2c2c;
+    font-size: 5rem;
+    color: #ed718d;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 1s ease;
@@ -2659,11 +2657,20 @@ body.menu-open {
     z-index: 2;
 }
 
-.feedback-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+.feedback-carousel-wrapper {
+    position: relative;
     margin-top: 60px;
+    padding: 0 80px;
+}
+
+.feedback-grid {
+    display: flex;
+    gap: 30px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 40px 0;
+    align-items: center;
+    scroll-snap-type: x mandatory;
 }
 
 .feedback-card {
@@ -2671,14 +2678,67 @@ body.menu-open {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
+    min-width: 400px;
+    max-width: 400px;
+    flex-shrink: 0;
+    transform: scale(0.85);
+    opacity: 0.6;
+    scroll-snap-align: center;
+}
+
+.feedback-card.center-card {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    border-color: #d4c5b9;
+    z-index: 5;
 }
 
 .feedback-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    border-color: #d4c5b9;
+    transform: scale(0.9);
+}
+
+.feedback-card.center-card:hover {
+    transform: scale(1.15);
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #d4c5b9;
+    color: #8b7355;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-nav:hover {
+    background: #d4c5b9;
+    color: #fff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-nav-prev {
+    left: 10px;
+}
+
+.carousel-nav-next {
+    right: 10px;
 }
 
 .feedback-header {
@@ -2949,10 +3009,18 @@ body.menu-open {
         font-size: 3.5rem;
     }
 
-    .stories-grid,
-    .feedback-grid {
+    .stories-grid {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 30px;
+    }
+    
+    .feedback-card {
+        min-width: 350px;
+        max-width: 350px;
+    }
+    
+    .feedback-carousel-wrapper {
+        padding: 0 70px;
     }
 }
 
@@ -2978,7 +3046,6 @@ body.menu-open {
         padding: 60px 0;
     }
 
-    .feedback-grid,
     .stories-grid {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -2986,6 +3053,27 @@ body.menu-open {
 
     .feedback-card {
         padding: 25px;
+        min-width: 280px;
+        max-width: 280px;
+        transform: scale(0.85);
+    }
+    
+    .feedback-card.center-card {
+        transform: scale(1.05);
+    }
+    
+    .feedback-carousel-wrapper {
+        padding: 0 50px;
+    }
+    
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-nav svg {
+        width: 20px;
+        height: 20px;
     }
 
     .gallery-cta-content h2 {

@@ -212,4 +212,98 @@ document.addEventListener('keydown', (e) => {
 // Initialize: Render product cards when page loads
 document.addEventListener('DOMContentLoaded', () => {
     renderProductCards();
+    initFeedbackCarousel();
+    
+    // Center first card on load
+    setTimeout(() => {
+        const feedbackGrid = document.querySelector('.feedback-grid');
+        if (feedbackGrid) {
+            const firstCard = feedbackGrid.querySelector('.feedback-card');
+            if (firstCard) {
+                const scrollPosition = firstCard.offsetLeft - (feedbackGrid.offsetWidth / 2) + (firstCard.offsetWidth / 2);
+                feedbackGrid.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'auto'
+                });
+            }
+        }
+    }, 100);
 });
+
+// Feedback Carousel Functionality
+function initFeedbackCarousel() {
+    const feedbackGrid = document.querySelector('.feedback-grid');
+    const prevBtn = document.querySelector('.carousel-nav-prev');
+    const nextBtn = document.querySelector('.carousel-nav-next');
+    
+    if (!feedbackGrid || !prevBtn || !nextBtn) return;
+    
+    // Function to find and highlight center card
+    function updateCenterCard() {
+        const cards = feedbackGrid.querySelectorAll('.feedback-card');
+        const containerCenter = feedbackGrid.offsetLeft + feedbackGrid.offsetWidth / 2;
+        
+        let centerCard = null;
+        let minDistance = Infinity;
+        
+        cards.forEach(card => {
+            card.classList.remove('center-card');
+            const cardCenter = card.offsetLeft - feedbackGrid.scrollLeft + card.offsetWidth / 2;
+            const distance = Math.abs(containerCenter - cardCenter);
+            
+            if (distance < minDistance) {
+                minDistance = distance;
+                centerCard = card;
+            }
+        });
+        
+        if (centerCard) {
+            centerCard.classList.add('center-card');
+        }
+    }
+    
+    // Scroll to next card
+    nextBtn.addEventListener('click', () => {
+        const cardWidth = feedbackGrid.querySelector('.feedback-card').offsetWidth;
+        const gap = 30; // gap between cards
+        feedbackGrid.scrollBy({
+            left: cardWidth + gap,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Scroll to previous card
+    prevBtn.addEventListener('click', () => {
+        const cardWidth = feedbackGrid.querySelector('.feedback-card').offsetWidth;
+        const gap = 30; // gap between cards
+        feedbackGrid.scrollBy({
+            left: -(cardWidth + gap),
+            behavior: 'smooth'
+        });
+    });
+    
+    // Update center card on scroll
+    feedbackGrid.addEventListener('scroll', () => {
+        updateNavButtons();
+        updateCenterCard();
+    });
+    
+    // Optional: Hide/show navigation buttons based on scroll position
+    function updateNavButtons() {
+        const scrollLeft = feedbackGrid.scrollLeft;
+        const maxScroll = feedbackGrid.scrollWidth - feedbackGrid.clientWidth;
+        
+        prevBtn.style.opacity = scrollLeft <= 0 ? '0.3' : '1';
+        prevBtn.style.pointerEvents = scrollLeft <= 0 ? 'none' : 'auto';
+        
+        nextBtn.style.opacity = scrollLeft >= maxScroll - 5 ? '0.3' : '1';
+        nextBtn.style.pointerEvents = scrollLeft >= maxScroll - 5 ? 'none' : 'auto';
+    }
+    
+    // Initial setup
+    updateNavButtons();
+    updateCenterCard();
+    
+    // Update on window resize
+    window.addEventListener('resize', updateCenterCard);
+}
