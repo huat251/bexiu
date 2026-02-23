@@ -14,6 +14,7 @@ function renderProductCards() {
         card.setAttribute('data-images', product.images.join('|'));
         card.setAttribute('data-description', product.description);
         card.setAttribute('data-features', product.features.join('|'));
+        card.setAttribute('data-price', product.price || '');
         
         card.innerHTML = `
             <div class="card-image">
@@ -133,6 +134,7 @@ function openProductOverlay(card) {
     const imagesStr = card.getAttribute('data-images');
     const description = card.getAttribute('data-description');
     const features = card.getAttribute('data-features');
+    const price = card.getAttribute('data-price');
     
     // Parse images
     currentImages = imagesStr ? imagesStr.split('|') : [image];
@@ -143,6 +145,10 @@ function openProductOverlay(card) {
     document.getElementById('overlayTitle').textContent = title;
     document.getElementById('overlayImage').src = currentImages[0];
     document.getElementById('overlayDescription').textContent = description;
+    const priceEl = document.getElementById('overlayPrice');
+    if (priceEl) {
+        priceEl.textContent = price ? Number(price).toLocaleString('vi-VN') + 'đ' : '';
+    }
     
     // Create thumbnails
     const thumbnailsContainer = document.getElementById('overlayThumbnails');

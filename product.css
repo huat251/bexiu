@@ -621,6 +621,14 @@
     background-color: #ed718d;
 }
 
+.overlay-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ed718d;
+    margin: 8px 0 12px;
+    letter-spacing: 0.5px;
+}
+
 .overlay-description {
     font-size: 16px;
     line-height: 1.8;

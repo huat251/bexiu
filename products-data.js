@@ -6,6 +6,7 @@ const productsData = [
         title: "FIGURE",
         image: "images/product1.png",
         images: ["images/product1.png", "images/product/fg1.jpg", "images/product/fg2.jpg", "images/product/fg3.jpg"],
+        price: 980000,
         description: "Một phiên bản mini của bạn – ngồi yên trên bàn làm việc, nhưng mang theo cả một câu chuyện. Nhỏ xinh, tinh tế, nhìn là thấy thân quen.",
         features: [
             "Chất liệu: Đất sét tự khô",
@@ -21,6 +22,7 @@ const productsData = [
         title: "KEYCHAIN<br>HEADSHOT",
         image: "images/product2.png",
         images: ["images/product2.png", "images/product/kch1.jpeg", "images/product/kch2.jpeg", "images/product/kch3.jpeg"],
+        price: 350000,
         description: "Chỉ cần gương mặt thôi cũng đủ nhận ra rồi . Một chiếc móc khóa bé xíu, nhưng là bạn – theo mình đi khắp nơi.",
         features: [
             "Chất liệu: Đất sét tự khô",
@@ -34,6 +36,7 @@ const productsData = [
         title: "RINGBOX",
         image: "images/product3.png",
         images: ["images/product3.png", "images/product3.png", "images/product3.png", "images/product3.png"],
+        price: 950000,
         description: "Không chỉ là hộp nhẫn… mà là khoảnh khắc được cất giữ bằng cả sự nâng niu. Mở ra là kỷ niệm, đóng lại là yêu thương.",
         features: [
             "Chất liệu hộp: Nhựa resin cao cấp",
@@ -48,6 +51,7 @@ const productsData = [
         title: "KEYCHAIN<br>FULLBODY",
         image: "images/product4.png",
         images: ["images/product4.png", "images/product4.png", "images/product4.png", "images/product4.png"],
+        price: 700000,
         description: "Full outfit – full thần thái. Phiên bản mini nhìn là biết ngay: à, người này nè!",
         features: [
             "Chất liệu: Đất sét tự khô",
@@ -63,6 +67,7 @@ const productsData = [
         title: "KEYCAP",
         image: "images/product5.png",
         images: ["images/product5.png", "images/product5.png", "images/product5.png", "images/product5.png"],
+        price: 320000,
         description: "Mỗi lần gõ phím là một lần thấy bạn ở đó. Một chiếc keycap nhỏ thôi, nhưng là món đồ độc nhất.",
         features: [
             "Chất liệu: Đất sét tự khô",
@@ -77,6 +82,7 @@ const productsData = [
         title: "HIPPER",
         image: "images/product6.png",
         images: ["images/product6.png", "images/product6.png", "images/product6.png", "images/product6.png"],
+        price: 660000,
         description: "Bám nhẹ vào điện thoại, laptop… nhỏ xíu nhưng lúc nào cũng khiến người ta mỉm cười",
         features: [
             "Chất liệu: Đất sét tự khô",
@@ -91,6 +97,7 @@ const productsData = [
         title: "KEYCHAIN<br>TINYPOSE",
         image: "images/product7.png",
         images: ["images/product7.png", "images/product7.png", "images/product7.png", "images/product7.png"],
+        price: 550000,
         description: "Đặt gần nhau là tự động nắm tay.  Dành cho cặp đôi, hội bạn – những người luôn có nhau trong từng khoảnh khắc.",
         features: [
             "Chất liệu: Đất sét tự khô",
