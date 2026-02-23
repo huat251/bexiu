@@ -853,7 +853,7 @@ body.menu-open {
 }
 
 .content-title {
-    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-family: 'Nunito', sans-serif;    
     font-size: 48px;
     font-weight: 700;
     line-height: 1.2;
@@ -873,7 +873,7 @@ body.menu-open {
     font-weight: bold;
     line-height: 1.8;
     color: rgba(0, 0, 0, 0.7);
-    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-family: 'Nunito', sans-serif;
     font-weight: 300;
 }
 
@@ -1313,7 +1313,7 @@ body.menu-open {
 }
 
 .engine-script {
-    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-family: 'Nunito', sans-serif;
     font-size: clamp(60px, 10vw, 120px);
     color: #ed718d;
     font-weight: 400;
