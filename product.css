@@ -238,7 +238,7 @@
 }
 
 .card-title {
-    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-family: 'Nunito', sans-serif;
     font-size: 32px;
     font-weight: 700;
     color: #000000;
@@ -600,7 +600,7 @@
 }
 
 .overlay-title {
-    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-family: 'Nunito', sans-serif;
     font-size: 48px;
     font-weight: 700;
     color: #000;
